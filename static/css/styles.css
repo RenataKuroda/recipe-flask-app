@@ -1,0 +1,22 @@
+header {
+    display: flex;
+    align-items: center;
+}
+  
+.logo img{
+    height: 100px;
+    width: 100px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+#recipeposts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+}
+  
+  
+  
+  

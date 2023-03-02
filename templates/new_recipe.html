@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block title%} 
+    Recipes
+{% endblock title %}
+
+{% block main%} 
+
+<form action="/new-recipe" method="post">
+  <label for="title">Recipe Title:</label>
+  <input type="text" id="title" name="title" required>
+
+  <label for="description">Description:</label>
+  <textarea id="description" name="description"></textarea>
+
+  <label for="image_url">Image URL:</label>
+  <input type="text" id="image_url" name="image_url">
+
+  <h2>Ingredients:</h2>
+
+  <div class="ingredient">
+      
+
+      <label for="ingredient_amount_1">Amount:</label>
+      <input type="text" id="ingredient_amount_1" name="ingredient_amount[]">
+
+      <label for="ingredient_unit_1">Unit:</label>
+      <select id="ingredient_unit_1" name="ingredient_unit[]">
+          <option value="">Select a unit</option>
+          <option value="cup">Cup</option>
+          <option value="g">G</option>
+          <option value="ml">Ml</option>
+          <option value="tbsp">tbsp</option>
+          <option value="tsp">tsp</option>
+      </select>
+      <label for="ingredient_name_1">Ingredient:</label>
+      <input type="text" id="ingredient_name_1" name="ingredient_name[]" required>
+  </div>
+
+  <button id="add_ingredient">Add Ingredient</button>
+
+  <h2>Steps:</h2>
+
+  <div class="step">
+      <label for="step_number_1">Step Number:</label>
+      <input type="number" id="step_number_1" name="step_number[]">
+      <label for="step_instruction_1">Instruction:</label>
+      <textarea id="step_instruction_1" name="step_instruction[]" required></textarea>
+
+      
+  </div>
+
+  <button id="add_step">Add Step</button>
+
+  <input type="submit" value="Save Recipe">
+</form>
+
+
+  {% endblock main %}

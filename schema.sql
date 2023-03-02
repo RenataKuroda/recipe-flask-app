@@ -1,6 +1,9 @@
+-- createdb recipeapp
+-- psql recipeapp
+
 CREATE TABLE recipes (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
+    title VARCHAR(255) NOT NULL,
     description TEXT,
     ingredients TEXT NOT NULL,
     instructions TEXT NOT NULL,

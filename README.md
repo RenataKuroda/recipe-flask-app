@@ -3,7 +3,7 @@ First full stack application for GA flex course
 
 Plan
 
-Set 1
+Step 1
 1. Choose an idea to work on.
 2. Define the requirements, plan app functionalities - user authentication, recipe creation, sharing, search by ingredient/category, shopping list, rating, commenting, etc.
 3. Plan data model, data to be stored - user info, recipe details, ratings, comments.

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Re-cipes - {% block title%} {% endblock title %}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/static/css/styles.css">
+    </head>
+    <body>
+        <h1>Re-cipes</h1>
+        <nav>
+            <a href="/">Home</a>
+            {% if session.get('user_id') %}
+            <a href="/createrecipe">Share your Recipe!</a>
+            {% endif %}
+            <a href="/login">Login</a>
+            <a href="/signup">Signup</a></div>
+            {% if session.get('user_id') %}
+            <form action="/logout" method="post">
+                <span>Welcome {{ user_name }}! </span> 
+                <button type="submit">Logout</button>
+            </form>
+            {% endif %}
+            
+        </nav>
+        <main>
+            {% block main%} {% endblock main %}
+        </main>
+        
+    </body>
+</html>

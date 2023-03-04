@@ -27,5 +27,5 @@ Salt and pepper to taste
 
 1. In a large pot, sauté onion and garlic over medium heat until fragrant.
 2. Add butternut squash and broth to the pot.
-3. Bring to a boil, then reduce heat and simmer for 20-25 minutes, or until the butternut is soft
+3. Bring to a boil, then reduce heat and simmer for 20-25 minutes, or until the butternut is soft.
 4. Blend evertything and serve.

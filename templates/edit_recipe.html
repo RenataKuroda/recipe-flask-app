@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}Edit Recipe{% endblock %}
+
+{% block main %}
+<form action="/updated-recipe/{{id}}" method="post">
+    <label for="title">Recipe Title:</label>
+    <input type="text" id="title" name="title" value="{{ title }}" required>
+  
+    <label for="description">Description:</label>
+    <textarea id="description" name="description">{{ description }}</textarea>
+  
+    <label for="image_url">Image URL:</label>
+    <input type="text" id="image_url" name="image_url" value="{{ image_url }}">
+  
+    <h2>Ingredients:</h2>
+  
+    <div id="ingredients-container" class="ingredient">
+      {% for ingredient in ingredients %}
+      <label for="ingredient_name_{{ loop.index }}">Ingredient {{ loop.index }}:</label>
+      <input type="text" id="ingredient_name_{{ loop.index }}" name="ingredient_name[]" value="{{ ingredient }}" required>
+      {% endfor %}
+    </div>
+  
+    <button id="add_ingredient">Add Ingredient</button>
+  
+    <h2>Instructions:</h2>
+  
+    <div id="steps-container">
+      {% for instruction in instructions %}
+      <div class="step">
+        <label>Step {{ loop.index }}:</label>
+        <textarea id="step_instruction_{{ loop.index }}" name="step_instruction[]" required>{{ instruction }}</textarea>
+      </div>
+      {% endfor %}
+    </div>
+  
+    <button id="add_step">Add Step</button>
+    <br>
+    <br>
+  
+    <input type="submit" value="Save Recipe">
+  </form>
+{% endblock %}

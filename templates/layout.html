@@ -24,7 +24,7 @@
             <a href="/signup">Signup</a></div>
             {% if session.get('user_id') %}
             <form action="/logout" method="post">
-                <span>Welcome {{ user_name }}! </span> 
+                <span>Welcome {{ session['user_name'] }}! </span> 
                 <button type="submit">Logout</button>
             </form>
             {% endif %}

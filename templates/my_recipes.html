@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    My Recipes
+{% endblock title %}
+
+{% block main %}
+    <h1>My Recipes</h1>
+
+    {% if user_recipes %}
+        <ul>
+        {% for recipe in user_recipes %}
+            <li><a href="/recipe/{{ recipe.id }}">{{ recipe.title }}</a></li>
+            
+            
+            <form action="/edit-recipe/{{ recipe.id }}" method="get">
+                <input type="submit" value="Update">
+            </form>
+            <form action="/delete-recipe/{{ recipe.id }}" method="post" onsubmit="return confirm('Are you sure you want to delete {{ recipe.title }}?')">
+                <input type="submit" value="Delete">
+            </form>
+
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>You haven't created any recipes yet.</p>
+    {% endif %}
+{% endblock main %}
+
+
+
+  

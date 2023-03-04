@@ -3,7 +3,7 @@ import psycopg2
 from psycopg2.extras import RealDictCursor
 from werkzeug.security import generate_password_hash, check_password_hash
 
-from models.recipe import get_all_recipes, get_recipe, insert_recipe, delete_recipe, update_recipe
+from models.recipe import get_all_recipes, get_recipe, insert_recipe, delete_recipe, update_recipe, get_user_recipes
 from models.users import get_user_by_email, insert_user
 
 app = Flask(__name__)
@@ -50,20 +50,30 @@ def signup():
     insert_user(name, email, password_hash)
     return redirect ('/login')
 
+@app.post('/logout')
+def logout_user():
+    session.pop('user_id')
+    session.pop('user_name')
+    session.pop('user_email')
+    return redirect('/')
+
 @app.route('/recipe/<id>')
 def recipe_detail(id):
     recipe = get_recipe(id)
     return render_template('recipe_details.html', recipe=recipe)
 
-
 @app.route('/new-recipe', methods=['GET', 'POST'])
 def add_recipe():
+    if 'user_id' not in session:
+        return redirect('/login')
+        
     if request.method == 'GET':
         return render_template('new_recipe.html')
 
     title = request.form.get('title')
     description = request.form.get('description')
     image_url = request.form.get('image_url')
+    user_id = session['user_id']
 
     ingredient_names = request.form.getlist('ingredient_name[]')
 
@@ -79,9 +89,21 @@ def add_recipe():
         if step_instruction:
             instructions.append(step_instruction)
 
-    insert_recipe(title, description, ingredients, instructions, image_url)
+    insert_recipe(title, description, ingredients, instructions, image_url, user_id)
 
     return redirect('/')    
+
+@app.route('/my-recipes')
+def my_recipes():
+    if 'user_id' not in session:
+        return redirect('/login')
+
+    user_id = session['user_id']
+    user_recipes = get_user_recipes(session['user_id'])
+    for recipe in user_recipes:
+        print(recipe)
+    return render_template('my_recipes.html', user_recipes=user_recipes)
+
 
 @app.route('/delete-recipe/<id>', methods=['POST'])
 def delete_recipe_item(id):

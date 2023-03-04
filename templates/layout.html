@@ -19,7 +19,9 @@
             <a href="/">Home</a>
          
             <a href="/new-recipe">Share your Recipe!</a>
-           
+            {% if session.get('user_id') %}
+            <a href="/my-recipes">Manage your Recipes here!</a>
+            {% endif %}
             <a href="/login">Login</a>
             <a href="/signup">Signup</a></div>
             {% if session.get('user_id') %}
@@ -36,3 +38,4 @@
         <script src="/static/js/script.js"></script>
     </body>
 </html>
+

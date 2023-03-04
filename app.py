@@ -4,7 +4,7 @@ from psycopg2.extras import RealDictCursor
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 
-from models.recipe import get_all_recipes, get_recipe_by_id
+from models.recipe import get_all_recipes, get_recipe_by_id, insert_recipe
 
 app = Flask(__name__)
 
@@ -32,30 +32,20 @@ def add_recipe():
     description = request.form.get('description')
     image_url = request.form.get('image_url')
 
-    # Parse ingredients
-    ingredient_names = request.form.getlist('ingredient_name')
-    ingredient_amounts = request.form.getlist('ingredient_amount')
-    ingredient_units = request.form.getlist('ingredient_unit')
+    ingredient_names = request.form.getlist('ingredient_name[]')
 
     ingredients = []
-    for name, amount, unit in zip(ingredient_names, ingredient_amounts, ingredient_units):
-        if name and amount and unit:
-            ingredients.append(f'{amount} {unit} {name}')
+    for ingredient_name in ingredient_names:
+        if ingredient_name:
+            ingredients.append(ingredient_name)
 
-    ingredients = '\n'.join(ingredients)
-
-    # Parse instructions
-    step_instructions = request.form.getlist('step_instruction')
-    step_numbers = request.form.getlist('step_number')
+    step_instructions = request.form.getlist('step_instruction[]')
 
     instructions = []
-    for instruction, number in zip(step_instructions, step_numbers):
-        if instruction:
-            instructions.append(f'{number}. {instruction}')
+    for step_instruction in step_instructions:
+        if step_instruction:
+            instructions.append(step_instruction)
 
-    instructions = '\n'.join(instructions)
-
-    # Save recipe to database
     insert_recipe(title, description, ingredients, instructions, image_url)
 
-    return redirect('/')
+    return redirect('/')    

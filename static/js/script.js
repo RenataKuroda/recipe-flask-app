@@ -43,7 +43,3 @@ addStepButton.addEventListener("click", function() {
     newStepDiv.appendChild(newStepInstructionTextarea);
     stepsContainer.appendChild(newStepDiv);
 });
-
-
-const newStepLabel = document.createElement("label");
-newStepLabel.textContent = "Step " + stepCount + " (" + (stepCount - 1) + " completed):";

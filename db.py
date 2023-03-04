@@ -16,3 +16,10 @@ def select_one(query, params):
     cur.execute(query, params)
     result = cur.fetchone()
     return result
+
+def insert(query, params):
+    conn = psycopg2.connect("dbname=recipeapp")
+    cur = conn.cursor()
+    cur.execute(query, params)
+    conn.commit()
+    conn.close()

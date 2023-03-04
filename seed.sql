@@ -13,3 +13,19 @@ VALUES ('Spinach and Feta Stuffed Chicken',
         '{"Preheat oven to 375°F.","In a skillet, heat olive oil over medium heat.","Add spinach and cook until wilted.","Remove from heat and stir in feta cheese.","Slice a pocket into each chicken breast.","Stuff each chicken breast with spinach and feta mixture.","Sprinkle garlic powder, salt, and pepper over the chicken.","Place chicken breasts in a baking dish and bake for 25-30 minutes, or until chicken is cooked through."}',
         'https://media.istockphoto.com/id/118313946/photo/chicken-breasts-stuffed-with-spinach-and-feta.jpg?s=612x612&w=is&k=20&c=RoMZTAJvrgDQCGERiVEKmSjxoObr7CZYYoe9ZQaZz5I=', DATE_TRUNC('day', NOW())
         );
+
+Butternut Squash Soup
+This soup is perfect for a cozy night in. The creamy butternut squash base is complemented by the warm spices, making it a comforting and delicious meal.
+1 butternut squash, peeled and cubed
+1 onion, chopped
+2 cloves garlic, minced
+2 cups chicken or vegetable broth
+1 teaspoon ground cinnamon
+1/2 teaspoon ground nutmeg
+Salt and pepper to taste
+1/4 cup heavy cream (optional)
+
+1. In a large pot, sauté onion and garlic over medium heat until fragrant.
+2. Add butternut squash and broth to the pot.
+3. Bring to a boil, then reduce heat and simmer for 20-25 minutes, or until the butternut is soft
+4. Blend evertything and serve.

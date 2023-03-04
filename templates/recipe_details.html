@@ -25,5 +25,9 @@
       {% endfor %}
     </ol>
   </article>
+
+  <form action="/delete-recipe/{{ recipe.id }}" method="post" onsubmit="return confirm('Are you sure you want to delete {{ recipe.title }}?')">
+    <input type="submit" value="Delete">
+</form>
   
 {% endblock main %}

@@ -16,3 +16,8 @@ def insert_recipe(title, description, ingredients, instructions, image_url):
         "INSERT INTO recipes (title, description, ingredients, instructions, image_url) VALUES (%s, %s, %s, %s, %s)",
         [title, description, ingredients, instructions, image_url]
     )
+
+def delete_recipe(id):
+    db.write('DELETE FROM recipes WHERE id = %s', 
+    [id]
+    )

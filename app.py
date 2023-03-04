@@ -4,7 +4,7 @@ from psycopg2.extras import RealDictCursor
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 
-from models.recipe import get_all_recipes, get_recipe_by_id, insert_recipe
+from models.recipe import get_all_recipes, get_recipe_by_id, insert_recipe, delete_recipe
 
 app = Flask(__name__)
 
@@ -49,3 +49,8 @@ def add_recipe():
     insert_recipe(title, description, ingredients, instructions, image_url)
 
     return redirect('/')    
+
+@app.route('/delete-recipe/<id>', methods=['POST'])
+def delete_recipe_item(id):
+    delete_recipe(id)
+    return redirect('/')

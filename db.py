@@ -23,3 +23,14 @@ def insert(query, params):
     cur.execute(query, params)
     conn.commit()
     conn.close()
+
+def write(query, params):
+    db_connection = psycopg2.connect("dbname=recipeapp")
+    db_cursor = db_connection.cursor(cursor_factory=RealDictCursor)
+    db_cursor.execute(
+        query,
+        params
+    )
+    db_connection.commit()
+    db_cursor.close()
+    db_connection.close()

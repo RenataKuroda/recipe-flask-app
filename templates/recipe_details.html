@@ -1,23 +1,26 @@
 {% extends "layout.html" %}
 
+
+
 {% block title %}
 {{ recipe.title }}
 {% endblock title %}
 
 {% block main %}
 <article>
-  <img style="width: 320px" src="{{ recipe.image_url }}" alt="{{ recipe.name }}">
-  <h3>{{ recipe.title }}</h3>
-  <p>{{ recipe.description }}</p>
-  <ul>
-    {% for ingredient in recipe.ingredients.replace('{', '').replace('}', '').split(',') %}
-    <li>{{ ingredient }}</li>
-    {% endfor %}
-  </ul>
-  <ol>
-    {% for instruction in recipe.instructions.replace('{', '').replace('}', '').split(',') %}
-    <li>{{ instruction }}</li>
-    {% endfor %}
-  </ol>
-</article>
+    <img style="width: 320px" src="{{ recipe.image_url }}" alt="{{ recipe.title }}">
+    <h3>{{ recipe.title }}</h3>
+    <p>{{ recipe.description }}</p>
+    <ul>
+      {% for ingredient in recipe.ingredients %}
+      <li>{{ ingredient }}</li>
+      {% endfor %}
+    </ul>
+    <ol>
+      {% for instruction in recipe.instructions %}
+      <li>{{ instruction }}</li>
+      {% endfor %}
+    </ol>
+  </article>
+  
 {% endblock main %}

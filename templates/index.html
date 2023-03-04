@@ -10,7 +10,7 @@ Recipes
         {% for recipe in recipes %}
             <a href="/recipe/{{ recipe.id }}" style="text-decoration: none;">
                 <header>
-                <!-- <p class="date">{{ recipe.created_at }}</p> -->
+                <p class="date">{{ recipe.created_at }}</p>
                 <h2>{{ recipe.title }}</h2>
                 <img style="width: 200px; height: auto;" src="{{ recipe.image_url }}" alt="{{ recipe.title }}">
                 </header>

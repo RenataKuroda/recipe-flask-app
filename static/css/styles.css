@@ -66,7 +66,7 @@ a:hover{
 }
 
 main{
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -107,8 +107,8 @@ button:hover{
 }
 
 .recipe-box{
-    display:inline-bloc;
-    width: 300px;
+    display:inline-block ;
+    width: 200px;
     height: 400px;
     margin: 10px;
     padding: 10px;
@@ -169,5 +169,50 @@ input[type="submit"] {
     border-radius: 4px;
     cursor: pointer;
     margin: 2px;
+}
+
+.heart{
+    font-size: 24px;
+    color: #ddd;
+    cursor: pointer;
+}
+
+.heart:hover,
+.heart.active{
+    color: #f50909;
+}
+#main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+#main-nav .nav-links {
+    display: flex;
+    gap: 20px;
+}
+  
+#main-nav .search-form {
+    display: flex;
+    gap: 10px;
+    font-size: 0.8rem;
+    margin-left: auto;
+}
+  
+#main-nav .search-form input[type="text"],
+#main-nav .search-form button {
+    padding: 5px;
+    border: none;
+    background-color: #f2f2f2;
+}
+  
+#main-nav .search-form button {
+    background-color: #ddd;
+    cursor: pointer;
+}
+  
+#main-nav .search-form input[type="text"]:focus,
+#main-nav .search-form button:focus {
+    outline: none;
 }
   

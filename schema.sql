@@ -9,6 +9,8 @@ CREATE TABLE recipes (
     instructions TEXT[] NOT NULL,
     image_url TEXT,
     created_at DATE NOT NULL DEFAULT CURRENT_DATE,
+    course VARCHAR(255) NOT NULL,
+    rating INTEGER,
     user_id INTEGER NOT NULL,
     CONSTRAINT fk_user_id
         FOREIGN KEY(user_id)

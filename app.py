@@ -3,7 +3,7 @@ import psycopg2
 from psycopg2.extras import RealDictCursor
 from werkzeug.security import generate_password_hash, check_password_hash
 
-from models.recipe import get_all_recipes, get_recipe, insert_recipe, delete_recipe, update_recipe, get_user_recipes
+from models.recipe import get_all_recipes, get_recipe, insert_recipe, delete_recipe, update_recipe, get_user_recipes, get_all_recipes_by_search, get_all_recipes_by_course
 from models.users import get_user_by_email, insert_user
 
 app = Flask(__name__)
@@ -34,7 +34,6 @@ def login():
         session['user_name'] = user['name']
         session['user_email'] = user['email']
         return redirect('/')
-        
     else:
         return redirect('/login_form')
 
@@ -62,6 +61,7 @@ def recipe_detail(id):
     recipe = get_recipe(id)
     return render_template('recipe_details.html', recipe=recipe)
 
+
 @app.route('/new-recipe', methods=['GET', 'POST'])
 def add_recipe():
     if 'user_id' not in session:
@@ -74,6 +74,7 @@ def add_recipe():
     description = request.form.get('description')
     image_url = request.form.get('image_url')
     user_id = session['user_id']
+    course = request.form.get('course')
 
     ingredient_names = request.form.getlist('ingredient_name[]')
 
@@ -89,7 +90,7 @@ def add_recipe():
         if step_instruction:
             instructions.append(step_instruction)
 
-    insert_recipe(title, description, ingredients, instructions, image_url, user_id)
+    insert_recipe(title, description, ingredients, instructions, image_url, course, user_id)
 
     return redirect('/')    
 
@@ -100,10 +101,21 @@ def my_recipes():
 
     user_id = session['user_id']
     user_recipes = get_user_recipes(session['user_id'])
-    for recipe in user_recipes:
-        print(recipe)
+
     return render_template('my_recipes.html', user_recipes=user_recipes)
 
+@app.route('/course/<course>')
+def course_result(course):
+    search_recipes = get_all_recipes_by_course(course)
+
+    return render_template('search.html', search_recipes=search_recipes)
+
+@app.route('/search')
+def search_result():
+    query = request.args.get('query')
+    search_recipes = get_all_recipes_by_search(query)
+
+    return render_template('search.html', search_recipes=search_recipes)
 
 @app.route('/delete-recipe/<id>', methods=['POST'])
 def delete_recipe_item(id):
@@ -114,7 +126,7 @@ def delete_recipe_item(id):
 def update_recipe_form(id):
     recipe = get_recipe(id)
     print(recipe)
-    return render_template("edit_recipe.html", id=id, title=recipe['title'], description=recipe['description'], ingredients=recipe['ingredients'], instructions=recipe['instructions'], image_url=recipe['image_url'])
+    return render_template("edit_recipe.html", id=id, title=recipe['title'], description=recipe['description'], ingredients=recipe['ingredients'], instructions=recipe['instructions'], image_url=recipe['image_url'], course=recipe['course'])
 
 @app.route('/updated-recipe/<int:id>', methods=['POST'])
 def edit_recipe_form(id):
@@ -134,7 +146,8 @@ def edit_recipe_form(id):
             instructions.append(step_instruction)
     
     image_url = request.form.get('image_url')
+    course = request.form.get('course')
 
-    update_recipe(id, title, description, ingredients, instructions, image_url)
+    update_recipe(id, title, description, ingredients, instructions, image_url, course)
 
     return redirect('/')

@@ -43,3 +43,6 @@ addStepButton.addEventListener("click", function() {
     newStepDiv.appendChild(newStepInstructionTextarea);
     stepsContainer.appendChild(newStepDiv);
 });
+
+
+  

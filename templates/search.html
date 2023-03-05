@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title%}
+Recipes
+{% endblock title %}
+
+{% block main %}
+<section id="recipeposts">
+    {% for recipe in search_recipes %}
+    <div class="recipe-box">
+        <a href="/recipe/{{ recipe.id }}" style="text-decoration: none;">
+        <img style="width: 200px; height: auto;" src="{{ recipe.image_url }}" alt="{{ recipe.title }}">
+        <h4>{{ recipe.title }}</h4>
+        <p class="description">
+        {{ recipe.description }}
+        </p>
+        </a>
+    </div>
+        {% endfor %}
+        
+
+{% endblock main %}

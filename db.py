@@ -43,3 +43,12 @@ def select_all_recipes_by_user(query, params):
     cur.close()
     conn.close()
     return results
+
+def select_all_recipes_by_param(query, params):
+    conn = psycopg2.connect("dbname=recipeapp")
+    cur = conn.cursor(cursor_factory=RealDictCursor)
+    cur.execute(query, params)
+    results = cur.fetchall()
+    cur.close()
+    conn.close()
+    return results

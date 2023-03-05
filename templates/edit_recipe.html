@@ -13,6 +13,23 @@
     <label for="image_url">Image URL:</label>
     <input type="text" id="image_url" name="image_url" value="{{ image_url }}">
   
+    <select id="course" name="course">
+      <option value="appetizers" {% if course == 'appetizers' %}selected{% endif %}>Appetizers</option>
+      <option value="beverages" {% if course == 'beverages' %}selected{% endif %}>Beverages</option>
+      <option value="breadsnmuffins"{% if course == 'breadsnmuffins' %}selected{% endif %}>Breads & Muffins</option>
+      <option value="breakfast" {% if course == 'breakfast' %}selected{% endif %}>Breakfast</option>
+      <option value="dessert" {% if course == 'dessert' %}selected{% endif %}>Dessert</option>
+      <option value="entrees" {% if course == 'entrees' %}selected{% endif %}>Entrees</option>
+      <option value="main" {% if course == 'main' %}selected{% endif %}>Main</option>
+      <option value="salads" {% if course == 'salads' %}selected{% endif %}>Salads</option>
+      <option value="sauces-seasoning" {% if course == 'sauces-seasoning' %}selected{% endif %}>Sauces & Seasoning</option>
+      <option value="side-dishes" {% if course == 'side-dishes' %}selected{% endif %}>Side Dishes</option>
+      <option value="smoothies" {% if course == 'smoothies' %}selected{% endif %}>Smoothies</option>
+      <option value="soups" {% if course == 'soups' %}selected{% endif %}>Soups</option>
+    </select>
+  
+    
+
     <h2>Ingredients:</h2>
   
     <div id="ingredients-container" class="ingredient">

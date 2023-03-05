@@ -36,6 +36,22 @@
             
         </nav>
         </header>
+
+        <nav id="main-nav">
+            <div class="nav-links">
+                <a href="/course/appetizers">Appetizers</a>
+              <a href="/course/breadsnmuffins">Bread & Muffins</a>
+              <a href="/course/main">Main</a>
+              <a href="/course/soups">Soups</a>
+            </div>
+          
+            <div class="search-form">
+              <form action="/search" method="GET">
+                <input type="text" name="query" placeholder="Search for recipes...">
+                <button type="submit">Search</button>
+              </form>
+            </div>
+          </nav>
         <main>
             {% block main%} {% endblock main %}
         </main>

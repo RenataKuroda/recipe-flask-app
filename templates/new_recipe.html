@@ -16,37 +16,22 @@
   <label for="image_url">Image URL:</label>
   <input type="text" id="image_url" name="image_url">
 
-  <h2>Ingredients:</h2>
+  <h3>Ingredients:</h3>
 
   <div id="ingredients-container" class="ingredient">
-<!--       
 
-      <label for="ingredient_amount_1">Amount:</label>
-      <input type="text" id="ingredient_amount_1" name="ingredient_amount[]">
-
-      <label for="ingredient_unit_1">Unit:</label>
-      <select id="ingredient_unit_1" name="ingredient_unit[]">
-          <option value="">Select a unit</option>
-          <option value="cup">Cup</option>
-          <option value="g">G</option>
-          <option value="ml">Ml</option>
-          <option value="tbsp">tbsp</option>
-          <option value="tsp">tsp</option>
-      </select> -->
-   
     <label for="ingredient_name_1">Ingredient 1:</label>
     <input type="text" id="ingredient_name_1" name="ingredient_name[]" required>
   </div>
 
   <button id="add_ingredient">Add Ingredient</button>
 
-  <h2>Instructions:</h2>
+  <h3>Instructions:</h3>
 
-<div id="steps-container">
-    <div class="step">
-        <label>Step 1:</label>
-        <textarea id="step_instruction_1" name="step_instruction[]" required></textarea>
-    </div>
+<div id="steps-container" class="step">
+    <label>Step 1:</label>
+    <textarea id="step_instruction_1" name="step_instruction[]" required></textarea>
+  
 </div>
 
 <button id="add_step">Add Step</button>

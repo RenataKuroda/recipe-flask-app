@@ -7,6 +7,9 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/static/css/styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@1,500&display=swap" rel="stylesheet">
     </head>
     <body>
         <header class="logo">
@@ -16,12 +19,14 @@
         <nav>
             <a href="/">Home</a>
          
-            <a href="/new-recipe">Share your Recipe!</a>
+            <a href="/new-recipe">Share Your Own Recipe</a>
             {% if session.get('user_id') %}
-            <a href="/my-recipes">Manage your Recipes here!</a>
+            <a href="/my-recipes">My Recipes</a>
             {% endif %}
+            {% if not session.get('user_id') %}
             <a href="/login">Login</a>
             <a href="/signup">Signup</a></div>
+            {% endif %}
             {% if session.get('user_id') %}
             <form action="/logout" method="post">
                 <span>Welcome {{ session['user_name'] }}! </span> 

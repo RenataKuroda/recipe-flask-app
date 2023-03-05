@@ -6,22 +6,18 @@ Recipes
 
 {% block main %}
 <section id="recipeposts">
-    <article class="recipeposts">
-        {% for recipe in recipes %}
-            <a href="/recipe/{{ recipe.id }}" style="text-decoration: none;">
-                <div>
-                <p class="date">{{ recipe.created_at }}</p>
-                <h2>{{ recipe.title }}</h2>
-                <img style="width: 200px; height: auto;" src="{{ recipe.image_url }}" alt="{{ recipe.title }}">
-                </div>
-                <main>
-                <p class="description">
-                {{ recipe.description }}
-                </p>
-                </main>
-            </a>
+    {% for recipe in recipes %}
+    <div class="recipe-box">
+        <a href="/recipe/{{ recipe.id }}" style="text-decoration: none;">
+        <img style="width: 200px; height: auto;" src="{{ recipe.image_url }}" alt="{{ recipe.title }}">
+        <h4>{{ recipe.title }}</h4>
+        <p class="description">
+        {{ recipe.description }}
+        </p>
+        </a>
+    </div>
         {% endfor %}
-    </article>
+        
 
 {% endblock main %}
 

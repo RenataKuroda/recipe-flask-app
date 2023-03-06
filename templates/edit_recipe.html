@@ -3,16 +3,26 @@
 {% block title %}Edit Recipe{% endblock %}
 
 {% block main %}
-<form action="/updated-recipe/{{id}}" method="post">
+<form action="/updated-recipe/{{id}}" method="post" enctype="multipart/form-data">
     <label for="title">Recipe Title:</label>
     <input type="text" id="title" name="title" value="{{ title }}" required>
   
     <label for="description">Description:</label>
     <textarea id="description" name="description">{{ description }}</textarea>
-  
-    <label for="image_url">Image URL:</label>
-    <input type="text" id="image_url" name="image_url" value="{{ image_url }}">
-  
+    
+    {% if image_url %}
+      <label for="image_url">Current Image:</label>
+      <img src="{{ image_url}}" style="width: 100px;" alt="recipe photo">
+      <br>
+      <label for="new_image_url">Change Image:</label>
+      <input type="file" id="new_image_url" name="image">
+    {% else %}
+      <label for="image_url">Image:</label>
+      <input type="file" id="image_url" name="image" required>
+    {% endif %}
+
+    <br><br>
+    <label for="course">Course:</label>
     <select id="course" name="course">
       <option value="appetizers" {% if course == 'appetizers' %}selected{% endif %}>Appetizers</option>
       <option value="beverages" {% if course == 'beverages' %}selected{% endif %}>Beverages</option>

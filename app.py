@@ -2,12 +2,15 @@ from flask import Flask, render_template, request, redirect, session
 import psycopg2
 from psycopg2.extras import RealDictCursor
 from werkzeug.security import generate_password_hash, check_password_hash
+from cloudinary import CloudinaryImage
+import cloudinary.uploader
+import os
 
 from models.recipe import get_all_recipes, get_recipe, insert_recipe, delete_recipe, update_recipe, get_user_recipes, get_all_recipes_by_search, get_all_recipes_by_course
 from models.users import get_user_by_email, insert_user
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'naoseiqualpalavrasecretaescolher';
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 
 @app.route('/')
 def index():
@@ -72,7 +75,11 @@ def add_recipe():
 
     title = request.form.get('title')
     description = request.form.get('description')
-    image_url = request.form.get('image_url')
+    image = request.files.get('image')
+
+    uploaded_image = cloudinary.uploader.upload(image)
+    image_url = uploaded_image['url']
+
     user_id = session['user_id']
     course = request.form.get('course')
 
@@ -145,7 +152,11 @@ def edit_recipe_form(id):
         if step_instruction:
             instructions.append(step_instruction)
     
-    image_url = request.form.get('image_url')
+    image = request.files.get('image')
+
+    uploaded_image = cloudinary.uploader.upload(image)
+    image_url = uploaded_image['url']
+
     course = request.form.get('course')
 
     update_recipe(id, title, description, ingredients, instructions, image_url, course)

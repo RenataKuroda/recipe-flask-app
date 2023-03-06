@@ -6,15 +6,17 @@
 
 {% block main%} 
 
-<form action="/new-recipe" method="post">
+<form action="/new-recipe" method="post" enctype="multipart/form-data">
   <label for="title">Recipe Title:</label>
   <input type="text" id="title" name="title" required>
 
   <label for="description">Description:</label>
   <textarea id="description" name="description"></textarea>
 
-  <label for="image_url">Image URL:</label>
-  <input type="text" id="image_url" name="image_url">
+  <label for="image_url">Upload your recipe photo here:</label>
+  <p>
+    <input type="file" name="image" />
+  </p>
 
   <label for="course">Course:</label>
   <select id="course" name="course">

@@ -13,11 +13,12 @@
     </head>
     <body>
         <header class="logo">
-            <img src="/static/images/logo.jpg" alt="Re-cipes Logo">
+            <a href="/">
+                <img src="/static/images/logo.jpg" alt="Re-cipes Logo">
+            </a>
     
         
         <nav>
-            <a href="/">Home</a>
          
             <a href="/new-recipe">Share Your Own Recipe</a>
             {% if session.get('user_id') %}

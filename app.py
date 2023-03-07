@@ -21,6 +21,8 @@ def index():
 if __name__ == "__main__":
     app.run(debug = True)
 
+
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
@@ -91,7 +93,8 @@ def recipe_detail(id):
 @app.route('/new-recipe', methods=['GET', 'POST'])
 def add_recipe():
     if 'user_id' not in session:
-        return redirect('/login')
+        message = "To be able to post your own recipes, please login."
+        return render_template('login_form.html', message=message)
         
     if request.method == 'GET':
         return render_template('new_recipe.html')

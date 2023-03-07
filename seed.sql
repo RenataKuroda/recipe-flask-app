@@ -48,3 +48,13 @@ Kned the dough until it starts to let go of your hands. Using the stand mix with
 Place the dough in a loaf pan greased with olive oil.
 Leave it covered until it double the size.
 Pre heat oven at 180C and bake for 35 to 40 minutes.
+
+INSERT INTO dietary_categories (name) VALUES
+('dairy-free'),
+('gluten-free'),
+('low-carb'),
+('no added sugar'),
+('nut-free'),
+('paleo'),
+('vegan'),
+('vegetarian');

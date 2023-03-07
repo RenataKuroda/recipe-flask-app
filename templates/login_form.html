@@ -5,15 +5,22 @@
 {% endblock title %}
 
 {% block main%} 
+{% if message %}
+<p class="error">{{ message }}</p>
+{% endif %}
 <form action="/login" method="POST">
-   <label for="email">Enter Email</label>
-    <input name="email" type="text"></input>
+   <label for="email">Email</label>
+    <input placeholder="e-mail address" name="email" type="text" required>
     
-    <label for="password">Enter Password</label>
-    <input name="password" type="password"></input>
-    
+    <label for="password">Password</label>
+    <input placeholder="password" name="password" type="password" required>
+
     <button type="submit">Login</button>
 
 </form>
+<br>
+{% if message %}
+<p class="error">Don't have an account? Signup <a href="/signup">here</a></p>
+{% endif %}
 
 {% endblock main %}

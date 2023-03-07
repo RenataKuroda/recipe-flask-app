@@ -15,6 +15,14 @@ Signup
     <label for="password">Enter Password</label>
     <input name="password" type="password"></input>
 
+    <label for="confirm_password">Confirm Password</label>
+    <input name="confirm_password" type="password"></input>
+
+    {% if message %}
+    <p class="error">{{ message }}</p>
+    {% endif %}
+
+
     <button type="submit">Signup</button>
 </form>
 {% endblock main %}

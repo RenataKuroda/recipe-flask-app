@@ -25,32 +25,55 @@ if __name__ == "__main__":
 def login():
     if request.method == 'GET':
         return render_template('login_form.html')
-
+    
     email = request.form.get('email')
     password = request.form.get('password')
+
     user = get_user_by_email(email)
+    
+    if not user:
+        message = "Email not registered. Please try again with a different email."
+        return render_template('login_form.html', message=message)
     
     password_matches = check_password_hash(user['password_hash'], password)
 
-    if password_matches:
-        session['user_id'] = user['id']
-        session['user_name'] = user['name']
-        session['user_email'] = user['email']
-        return redirect('/')
-    else:
-        return redirect('/login_form')
+    if not password_matches:
+        message = "Incorrect password. Please try again."
+        return render_template('login_form.html', message=message)
+    
+    session['user_id'] = user['id']
+    session['user_name'] = user['name']
+    session['user_email'] = user['email']
+    return redirect('/')
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'GET':
         return render_template('signup.html')
+    
     name = request.form.get('name')
     email = request.form.get('email')
     password = request.form.get('password')
+    confirm_password = request.form.get('confirm_password')
+
+    user = get_user_by_email(email)
+    
+    if user:
+        message = "This email is already registered. Please try again with a different email."
+        return render_template('signup.html', message=message)
+    
+    if password != confirm_password:
+        message = "Passwords do not match. Please try again."
+        return render_template('signup.html', message=message)
+    
+    if len(password) < 8:
+        message = "Password must be at least 8 characters long and contain letters and numbers."
+        return render_template('signup.html', message=message)
+    
     password_hash = generate_password_hash(password)
 
     insert_user(name, email, password_hash)
-    return redirect ('/login')
+    return redirect('/login')
 
 @app.post('/logout')
 def logout_user():

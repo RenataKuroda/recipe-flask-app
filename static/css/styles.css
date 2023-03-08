@@ -115,8 +115,17 @@ button:hover{
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
     overflow: hidden;
+    position: relative;
 }
-  
+
+.bottom-box{
+    position: absolute !important;
+    bottom: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
 .recipe-box a{
     display: block;
     text-decoration: none;
@@ -171,7 +180,7 @@ input[type="submit"] {
     margin: 2px;
 }
 
-.heart{
+/* .heart{
     font-size: 24px;
     color: #ddd;
     cursor: pointer;
@@ -180,11 +189,12 @@ input[type="submit"] {
 .heart:hover,
 .heart.active{
     color: #f50909;
-}
+} */
 #main-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-right: 20px;
 }
   
 #main-nav .nav-links {
@@ -194,18 +204,24 @@ input[type="submit"] {
   
 #main-nav .search-form {
     display: flex;
-    gap: 10px;
-    font-size: 0.8rem;
+    gap: 20px;
+    font-size: 12px;
     margin-left: auto;
 }
   
-#main-nav .search-form input[type="text"],
+#main-nav .search-form input[type="text"]{
+    padding: 5px;
+    border: none;
+    background-color: #f2f2f2;
+    width: 250px;
+}
+  
 #main-nav .search-form button {
     padding: 5px;
     border: none;
     background-color: #f2f2f2;
 }
-  
+
 #main-nav .search-form button {
     background-color: #ddd;
     cursor: pointer;
@@ -234,3 +250,56 @@ input[type="submit"] {
     font-size: 14px;
     font-style: italic;
 }
+
+.dietary_categories{
+    display: flex;
+    justify-content: center;
+}
+  
+.dietary_categories p{
+    margin: 0 5px;
+    padding: 2px 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 12px;
+    color: white;
+}
+  
+.df{
+    background-color: #83b5d1;
+}
+  
+.gf{
+    background-color: #726e97;
+}
+
+.lc{
+    background-color: #7f557d;
+}
+
+.ns{
+    background-color: #C4B965;
+}
+
+.nf{
+    background-color: #e8b9ab;
+}
+
+.v{
+    background-color: #adbca5;
+}
+.veg{
+    background-color: #607F6E;
+}
+
+/* #dietary-guide-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 20px;
+}
+  
+#dietary-guide-nav .nav-links {
+    display: flex;
+    gap: 20px;
+} */

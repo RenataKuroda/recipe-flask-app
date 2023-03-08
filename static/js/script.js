@@ -44,5 +44,8 @@ addStepButton.addEventListener("click", function() {
     stepsContainer.appendChild(newStepDiv);
 });
 
-
-  
+const dairyFreeCheckbox = document.getElementById('dairy_free_checkbox');
+  const dairyFreeHidden = document.getElementById('dairy_free_hidden');
+  dairyFreeCheckbox.addEventListener('change', () => {
+    dairyFreeHidden.value = dairyFreeCheckbox.checked ? 'on' : 'off';
+  });

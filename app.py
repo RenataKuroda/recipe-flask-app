@@ -6,7 +6,7 @@ from cloudinary import CloudinaryImage
 import cloudinary.uploader
 import os
 
-from models.recipe import get_all_recipes, get_recipe, insert_recipe, delete_recipe, update_recipe, get_user_recipes, get_all_recipes_by_search, get_all_recipes_by_course
+from models.recipe import get_all_recipes, get_recipe, insert_recipe, delete_recipe, update_recipe, get_user_recipes, get_all_recipes_by_search, get_all_recipes_by_course, get_all_dairy_free_recipes
 from models.users import get_user_by_email, insert_user
 
 app = Flask(__name__)
@@ -15,7 +15,6 @@ app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 @app.route('/')
 def index():
     recipes = get_all_recipes()
-
     return render_template('index.html', recipes=recipes)
 
 if __name__ == "__main__":
@@ -101,10 +100,15 @@ def add_recipe():
 
     title = request.form.get('title')
     description = request.form.get('description')
-    image = request.files.get('image')
 
-    uploaded_image = cloudinary.uploader.upload(image)
-    image_url = uploaded_image['url']
+    if 'image' in request.files:
+        # Upload the image to Cloudinary
+        image = request.files.get('image')
+        uploaded_image = cloudinary.uploader.upload(image)
+        image_url = uploaded_image['url']
+    else:
+        # Set a default image URL or use a placeholder image
+        image_url = 'https://images.unsplash.com/photo-1487260211189-670c54da558d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80'
 
     user_id = session['user_id']
     course = request.form.get('course')
@@ -122,8 +126,16 @@ def add_recipe():
     for step_instruction in step_instructions:
         if step_instruction:
             instructions.append(step_instruction)
+    
+    dairy_free = request.form.get('dairy_free')
+    gluten_free = request.form.get('gluten_free')
+    low_carb = request.form.get('low_carb')
+    no_added_sugar = request.form.get('no_added_sugar')
+    nut_free = request.form.get('nut_free')
+    vegan = request.form.get('vegan')
+    vegetarian = request.form.get('vegetarian')
 
-    insert_recipe(title, description, ingredients, instructions, image_url, course, user_id)
+    insert_recipe(title, description, ingredients, instructions, image_url, course, user_id, dairy_free, gluten_free, low_carb, no_added_sugar, nut_free, vegan, vegetarian)
 
     return redirect('/')    
 
@@ -139,9 +151,15 @@ def my_recipes():
 
 @app.route('/course/<course>')
 def course_result(course):
-    search_recipes = get_all_recipes_by_course(course)
+    recipes = get_all_recipes_by_course(course)
 
-    return render_template('search.html', search_recipes=search_recipes)
+    return render_template('search.html', recipes=recipes)
+
+@app.route('/dairy-free')
+def dairy_free():
+    recipes = get_all_dairy_free_recipes()
+
+    return render_template('search.html', recipes=recipes)
 
 @app.route('/search')
 def search_result():
@@ -159,7 +177,7 @@ def delete_recipe_item(id):
 def update_recipe_form(id):
     recipe = get_recipe(id)
     print(recipe)
-    return render_template("edit_recipe.html", id=id, title=recipe['title'], description=recipe['description'], ingredients=recipe['ingredients'], instructions=recipe['instructions'], image_url=recipe['image_url'], course=recipe['course'])
+    return render_template("edit_recipe.html", id=id, title=recipe['title'], description=recipe['description'], ingredients=recipe['ingredients'], instructions=recipe['instructions'], image_url=recipe['image_url'], course=recipe['course'], gluten_free=recipe['gluten_free'], dairy_free=recipe['dairy_free'], low_carb=recipe['low_carb'], nut_free=recipe['nut_free'], no_added_sugar=recipe['no_added_sugar'], vegan=recipe['vegan'], vegetarian=recipe['vegetarian'])
 
 @app.route('/updated-recipe/<int:id>', methods=['POST'])
 def edit_recipe_form(id):
@@ -177,14 +195,17 @@ def edit_recipe_form(id):
     for step_instruction in step_instructions:
         if step_instruction:
             instructions.append(step_instruction)
-    
-    image = request.files.get('image')
-
-    uploaded_image = cloudinary.uploader.upload(image)
-    image_url = uploaded_image['url']
 
     course = request.form.get('course')
 
-    update_recipe(id, title, description, ingredients, instructions, image_url, course)
+    dairy_free = request.form.get('dairy_free')
+    gluten_free = request.form.get('gluten_free')
+    low_carb = request.form.get('low_carb')
+    no_added_sugar = request.form.get('no_added_sugar')
+    nut_free = request.form.get('nut_free')
+    vegan = request.form.get('vegan')
+    vegetarian = request.form.get('vegetarian')
 
-    return redirect('/')
+    update_recipe(id, title, description, ingredients, instructions, course, dairy_free, gluten_free, low_carb, no_added_sugar, nut_free, vegan, vegetarian)
+
+    return redirect('/my-recipes')

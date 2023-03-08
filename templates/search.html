@@ -6,7 +6,7 @@ Recipes
 
 {% block main %}
 <section id="recipeposts">
-    {% for recipe in search_recipes %}
+    {% for recipe in recipes %}
     <div class="recipe-box">
         <a href="/recipe/{{ recipe.id }}" style="text-decoration: none;">
         <img style="width: 200px; height: 300px;" src="{{ recipe.image_url }}" alt="{{ recipe.title }}">
@@ -17,6 +17,6 @@ Recipes
         </a>
     </div>
         {% endfor %}
-        
+
 
 {% endblock main %}

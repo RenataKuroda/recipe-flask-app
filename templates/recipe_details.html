@@ -36,7 +36,30 @@
     </div>
 
      -->
-    
+     <div class="dietary_categories">
+      {% if recipe.dairy_free %}
+      <p class="df">DF</p>
+      {% endif %}
+      {% if recipe.gluten_free %}
+      <p class="gf">GF</p>
+      {% endif %}
+      {% if recipe.low_carb %}
+      <p class="lc">LC</p>
+      {% endif %}
+      {% if recipe.no_added_sugar %}
+      <p class="ns">NS</p>
+      {% endif %}
+      {% if recipe.nut_free %}
+      <p class="nf">NF</p>
+      {% endif %}
+      {% if recipe.vegan %}
+      <p class="v">V</p>
+      {% endif %}
+      {% if recipe.vegetarian %}
+      <p
+      class="veg">VEG</p>
+      {% endif %}
+    </div>
     
     </div>
 

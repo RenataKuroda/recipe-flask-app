@@ -14,41 +14,6 @@ VALUES ('Spinach and Feta Stuffed Chicken',
         'https://media.istockphoto.com/id/118313946/photo/chicken-breasts-stuffed-with-spinach-and-feta.jpg?s=612x612&w=is&k=20&c=RoMZTAJvrgDQCGERiVEKmSjxoObr7CZYYoe9ZQaZz5I=', DATE_TRUNC('day', NOW()), 'main', 1
         );
 
-Butternut Squash Soup
-This soup is perfect for a cozy night in. The creamy butternut squash base is complemented by the warm spices, making it a comforting and delicious meal.
-1 butternut squash, peeled and cubed
-1 onion, chopped
-2 cloves garlic, minced
-2 cups chicken or vegetable broth
-1 teaspoon ground cinnamon
-1/2 teaspoon ground nutmeg
-Salt and pepper to taste
-1/4 cup heavy cream (optional)
-
-1. In a large pot, sauté onion and garlic over medium heat until fragrant.
-2. Add butternut squash and broth to the pot.
-3. Bring to a boil, then reduce heat and simmer for 20-25 minutes, or until the butternut is soft.
-4. Blend evertything and serve.
-
-Pumpkin Bread
-Ingredients:
-300g Wholemeal Flour
-200g Plain Flour
-1 egg
-90g Raw Sugar
-8g Salt
-10g Dry Yeast
-140ml Milk
-130g Pumpkin, cooked and mashed
-2 tablespoon olive oil
-Instructions:
-With a blender, mix all ingredients but the flours and the dry yeast.
-Transfer the mixture to a bowl, and add the flours and the yeast.
-Kned the dough until it starts to let go of your hands. Using the stand mix with the dough hook will also work.
-Place the dough in a loaf pan greased with olive oil.
-Leave it covered until it double the size.
-Pre heat oven at 180C and bake for 35 to 40 minutes.
-
 INSERT INTO dietary_categories (name) VALUES
 ('dairy-free'),
 ('gluten-free'),

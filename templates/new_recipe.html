@@ -15,7 +15,7 @@
 
   <label for="image_url">Upload your recipe photo here:</label>
   <p>
-    <input type="file" name="image" />
+    <input type="file" name="image" required/>
   </p>
 
   <label for="course">Course:</label>
@@ -53,9 +53,40 @@
 </div>
 
 <button id="add_step">Add Step</button>
-  <br>
-  <br>
+<br>
+<br>
 
+<label for="dairy_free">Dairy Free:</label>
+<input type="checkbox" id="dairy_free_checkbox" name="dairy_free">
+<input type="hidden" id="dairy_free_hidden" name="dairy_free" value="off">
+
+
+<label for="gluten_free">Gluten Free:</label>
+<input type="checkbox" id="gluten_free_checkbox" name="gluten_free">
+<input type="hidden" id="gluten_free_hidden" name="gluten_free" value="off">
+
+<label for="low_carb">Low Carb:</label>
+<input type="checkbox" id="low_carb_checkbox" name="low_carb">
+<input type="hidden" id="low_carb_hidden" name="low_carb" value="off">
+
+<label for="no_added_sugar">No Added Sugar:</label>
+<input type="checkbox" id="no_added_sugar_checkbox" name="no_added_sugar">
+<input type="hidden" id="no_added_sugar_hidden" name="no_added_sugar" value="off">
+
+<label for="nut_free">Nut Free:</label>
+<input type="checkbox" id="nut_free_checkbox" name="nut_free">
+<input type="hidden" id="nut_free_hidden" name="nut_free" value="off">
+
+<label for="vegan">Vegan:</label>
+<input type="checkbox" id="vegan_checkbox" name="vegan">
+<input type="hidden" id="vegan_hidden" name="vegan" value="off">
+
+<label for="vegetarian">Vegetarian:</label>
+<input type="checkbox" id="vegetarian_checkbox" name="vegetarian">
+<input type="hidden" id="vegetarian_hidden" name="vegetarian" value="off">
+
+  <br>
+  <br>
   <input type="submit" value="Save Recipe">
 </form>
 

@@ -11,14 +11,45 @@ Recipes
         <a href="/recipe/{{ recipe.id }}" style="text-decoration: none;">
         <img style="width: 200px; height: 300px;" src="{{ recipe.image_url }}" alt="{{ recipe.title }}">
         <h4>{{ recipe.title }}</h4>
-        <p class="description">
-        {{ recipe.description }}
-        </p>
+        <div class="dietary_categories">
+            {% if recipe.dairy_free %}
+            <p class="df">DF</p>
+            {% endif %}
+            {% if recipe.gluten_free %}
+            <p class="gf">GF</p>
+            {% endif %}
+            {% if recipe.low_carb %}
+            <p class="lc">LC</p>
+            {% endif %}
+            {% if recipe.no_added_sugar %}
+            <p class="ns">NS</p>
+            {% endif %}
+            {% if recipe.nut_free %}
+            <p class="nf">NF</p>
+            {% endif %}
+            {% if recipe.vegan %}
+            <p class="v">V</p>
+            {% endif %}
+            {% if recipe.vegetarian %}
+            <p
+            class="veg">VEG</p>
+            {% endif %}
+          </div>
         </a>
     </div>
         {% endfor %}
         
+<!-- <nav class="dietary-guide-nav">
+    <div><a href="/dairy-free">
+        <div class="dietary_categories">
+        <p class="df">DF</p>
+        </div>
+        <p>Dairy-Free</p>
+    </a></div>
 
+
+
+</nav> -->
 {% endblock main %}
 
 

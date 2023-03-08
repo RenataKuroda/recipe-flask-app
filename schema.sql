@@ -14,6 +14,13 @@ CREATE TABLE recipes (
     CONSTRAINT fk_user_id
         FOREIGN KEY(user_id)
         REFERENCES users(id)
+    dairy_free BOOLEAN NOT NULL DEFAULT false,
+    gluten_free BOOLEAN NOT NULL DEFAULT false
+    low_carb BOOLEAN NOT NULL DEFAULT false,
+    no_added_sugar BOOLEAN NOT NULL DEFAULT false,
+    nut_free BOOLEAN NOT NULL DEFAULT false,
+    vegan BOOLEAN NOT NULL DEFAULT false,
+    vegetarian BOOLEAN NOT NULL DEFAULT false
 );
 
 CREATE TABLE users(
@@ -28,20 +35,18 @@ CREATE TABLE dietary_categories (
   name VARCHAR(255) NOT NULL UNIQUE
 );
 
-INSERT INTO dietary_categories (name) VALUES
-('dairy-free'),
-('gluten-free'),
-('low-carb'),
-('no added sugar'),
-('nut-free'),
-('paleo'),
-('vegan'),
-('vegetarian');
-
 CREATE TABLE recipe_dietary_category (
-  recipe_id INTEGER REFERENCES recipes(id),
-  dietary_category_id INTEGER REFERENCES dietary_categories(id),
-  PRIMARY KEY(recipe_id, dietary_category_id)
+  recipe_id INTEGER NOT NULL,
+  dietary_category_id INTEGER NOT NULL,
+  PRIMARY KEY (recipe_id, dietary_category_id),
+  CONSTRAINT fk_recipe_id
+    FOREIGN KEY(recipe_id)
+    REFERENCES recipes(id)
+    ON DELETE CASCADE,
+  CONSTRAINT fk_dietary_category_id
+    FOREIGN KEY(dietary_category_id)
+    REFERENCES dietary_categories(id)
+    ON DELETE CASCADE
 );
 
 

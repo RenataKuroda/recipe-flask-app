@@ -28,7 +28,7 @@ def update_recipe(id, title, description, ingredients, instructions, course, dai
     )
 
 def get_user_recipes(user_id):
-    my_recipes = db.select_all_recipes_by_user('SELECT * FROM recipes WHERE user_id = %s', [user_id])
+    my_recipes = db.select_all_recipes_by_param('SELECT * FROM recipes WHERE user_id = %s', [user_id])
     return my_recipes
 
 def get_all_recipes_by_search(query):
@@ -42,3 +42,7 @@ def get_all_recipes_by_course(course):
 def get_all_dairy_free_recipes():
     dairy_free_recipes = db.select_all("SELECT * from recipes WHERE dairy_free = true")
     return dairy_free_recipes
+
+def get_user_recipes_by_search(user_id, query):
+    my_search_recipes = db.select_all_recipes_by_param('SELECT * FROM recipes WHERE user_id = %s AND (title ILIKE %s OR %s = ANY(ingredients) OR EXISTS(SELECT 1 FROM unnest(ingredients) AS i WHERE i ILIKE %s))', [user_id, f"%{query}%", query, f"%{query}%"])
+    return my_search_recipes

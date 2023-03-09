@@ -77,6 +77,9 @@ h1{
     color: #9F354E;
     margin-bottom: 20px;
 }
+h2{
+    color: #9F354E;
+}
 
 h4{
     font-size: 20px;
@@ -209,26 +212,31 @@ input[type="submit"] {
     margin-left: auto;
 }
   
-#main-nav .search-form input[type="text"]{
+#main-nav .search-form input[type="text"],
+.my-search-form input[type="text"]{
     padding: 5px;
     border: none;
     background-color: #f2f2f2;
     width: 250px;
 }
   
-#main-nav .search-form button {
+#main-nav .search-form button,
+.my-search-form button {
     padding: 5px;
     border: none;
     background-color: #f2f2f2;
 }
 
-#main-nav .search-form button {
+#main-nav .search-form button,
+.my-search-form button {
     background-color: #ddd;
     cursor: pointer;
 }
   
 #main-nav .search-form input[type="text"]:focus,
-#main-nav .search-form button:focus {
+#main-nav .search-form button:focus,
+.my-search-form input[type="text"]:focus,
+.my-search-form button:focus {
     outline: none;
 }
 

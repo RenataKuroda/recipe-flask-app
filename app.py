@@ -6,7 +6,7 @@ from cloudinary import CloudinaryImage
 import cloudinary.uploader
 import os
 
-from models.recipe import get_all_recipes, get_recipe, insert_recipe, delete_recipe, update_recipe, get_user_recipes, get_all_recipes_by_search, get_all_recipes_by_course, get_all_dairy_free_recipes
+from models.recipe import get_all_recipes, get_recipe, insert_recipe, delete_recipe, update_recipe, get_user_recipes, get_all_recipes_by_search, get_all_recipes_by_course, get_all_dairy_free_recipes, get_user_recipes_by_search
 from models.users import get_user_by_email, insert_user
 
 app = Flask(__name__)
@@ -167,6 +167,14 @@ def search_result():
     recipes = get_all_recipes_by_search(query)
 
     return render_template('search.html', recipes=recipes)
+
+@app.route('/my-recipes-search')
+def my_search_result():
+    user_id = session['user_id']
+    query = request.args.get('query')
+    recipes = get_user_recipes_by_search(session['user_id'], query)
+
+    return render_template('post-search.html', recipes=recipes)
 
 @app.route('/delete-recipe/<id>', methods=['POST'])
 def delete_recipe_item(id):

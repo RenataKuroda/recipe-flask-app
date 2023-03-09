@@ -164,9 +164,9 @@ def dairy_free():
 @app.route('/search')
 def search_result():
     query = request.args.get('query')
-    search_recipes = get_all_recipes_by_search(query)
+    recipes = get_all_recipes_by_search(query)
 
-    return render_template('search.html', search_recipes=search_recipes)
+    return render_template('search.html', recipes=recipes)
 
 @app.route('/delete-recipe/<id>', methods=['POST'])
 def delete_recipe_item(id):

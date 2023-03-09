@@ -121,13 +121,21 @@ button:hover{
     position: relative;
 }
 
-.bottom-box{
-    position: absolute !important;
-    bottom: 0 !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-}
+
+.bottom-box {
+    position: absolute;
+    bottom: 0;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  
+  .bottom-box form {
+    margin: 0 10px;
+  }
 
 .recipe-box a{
     display: block;
@@ -262,6 +270,14 @@ input[type="submit"] {
 .dietary_categories{
     display: flex;
     justify-content: center;
+    position: absolute;
+    bottom: 0;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
 }
   
 .dietary_categories p{
@@ -382,12 +398,15 @@ input[type="submit"] {
   }
   
   .dietary-summary-box p {
+    display: flex;
+    justify-content: center;
     margin: 0;
     padding: 5px;
     border-radius: 5px;
     font-weight: bold;
     font-size: 14px;
     color: white;
+    width: 25px;
   }
   
   .dietary-summary-box span {

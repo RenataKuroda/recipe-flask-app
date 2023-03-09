@@ -45,7 +45,7 @@
 
         <div class="my-search-form">
             <form action="/my-recipes-search" method="GET">
-              <input type="text" name="query" placeholder="What are you looking for?">
+              <input type="text" name="query" placeholder="What are you looking for {{ session['user_name'] }}?">
               <button type="submit">Search</button>
             </form>
           </div>

@@ -40,8 +40,32 @@ def get_all_recipes_by_course(course):
     return all_recipes
 
 def get_all_dairy_free_recipes():
-    dairy_free_recipes = db.select_all("SELECT * from recipes WHERE dairy_free = true")
+    dairy_free_recipes = db.select_all("SELECT * from recipes WHERE dairy_free")
     return dairy_free_recipes
+
+def get_all_gluten_free_recipes():
+    gluten_free_recipes = db.select_all("SELECT * from recipes WHERE gluten_free")
+    return gluten_free_recipes
+
+def get_all_low_carb_recipes():
+    low_carb_recipes = db.select_all("SELECT * from recipes WHERE low_carb")
+    return low_carb_recipes
+
+def get_all_no_added_sugar_recipes():
+    no_added_sugar_recipes = db.select_all("SELECT * from recipes WHERE no_added_sugar")
+    return no_added_sugar_recipes
+
+def get_all_nut_free_recipes():
+    nut_free_recipes = db.select_all("SELECT * from recipes WHERE nut_free")
+    return nut_free_recipes
+
+def get_all_vegan_recipes():
+    vegan_recipes = db.select_all("SELECT * from recipes WHERE vegan")
+    return vegan_recipes
+
+def get_all_vegetarian_recipes():
+    vegetarian_recipes = db.select_all("SELECT * from recipes WHERE vegetarian")
+    return vegetarian_recipes
 
 def get_user_recipes_by_search(user_id, query):
     my_search_recipes = db.select_all_recipes_by_param('SELECT * FROM recipes WHERE user_id = %s AND (title ILIKE %s OR %s = ANY(ingredients) OR EXISTS(SELECT 1 FROM unnest(ingredients) AS i WHERE i ILIKE %s))', [user_id, f"%{query}%", query, f"%{query}%"])

@@ -6,7 +6,7 @@ from cloudinary import CloudinaryImage
 import cloudinary.uploader
 import os
 
-from models.recipe import get_all_recipes, get_recipe, insert_recipe, delete_recipe, update_recipe, get_user_recipes, get_all_recipes_by_search, get_all_recipes_by_course, get_all_dairy_free_recipes, get_user_recipes_by_search
+from models.recipe import get_all_recipes, get_recipe, insert_recipe, delete_recipe, update_recipe, get_user_recipes, get_all_recipes_by_search, get_all_recipes_by_course, get_all_dairy_free_recipes, get_all_gluten_free_recipes, get_all_low_carb_recipes, get_all_no_added_sugar_recipes, get_all_nut_free_recipes, get_all_vegan_recipes, get_all_vegetarian_recipes, get_user_recipes_by_search
 from models.users import get_user_by_email, insert_user
 
 app = Flask(__name__)
@@ -88,7 +88,6 @@ def recipe_detail(id):
     recipe = get_recipe(id)
     return render_template('recipe_details.html', recipe=recipe)
 
-
 @app.route('/new-recipe', methods=['GET', 'POST'])
 def add_recipe():
     if 'user_id' not in session:
@@ -158,6 +157,42 @@ def course_result(course):
 @app.route('/dairy-free')
 def dairy_free():
     recipes = get_all_dairy_free_recipes()
+
+    return render_template('search.html', recipes=recipes)
+
+@app.route('/gluten-free')
+def gluten_free():
+    recipes = get_all_gluten_free_recipes()
+
+    return render_template('search.html', recipes=recipes)
+
+@app.route('/low-carb')
+def low_carb():
+    recipes = get_all_low_carb_recipes()
+
+    return render_template('search.html', recipes=recipes)
+
+@app.route('/no-added-sugar')
+def no_added_sugar():
+    recipes = get_all_no_added_sugar_recipes()
+
+    return render_template('search.html', recipes=recipes)
+
+@app.route('/nut-free')
+def nut_free():
+    recipes = get_all_nut_free_recipes()
+
+    return render_template('search.html', recipes=recipes)
+
+@app.route('/vegan')
+def vegan():
+    recipes = get_all_vegan_recipes()
+
+    return render_template('search.html', recipes=recipes)
+
+@app.route('/vegetarian')
+def vegetarian():
+    recipes = get_all_vegetarian_recipes()
 
     return render_template('search.html', recipes=recipes)
 

@@ -1,4 +1,4 @@
-INSERT INTO recipes (title, description, ingredients, instructions, image_url, created_at, course, user_id)
+lowINSERT INTO recipes (title, description, ingredients, instructions, image_url, created_at, course, user_id)
 VALUES ('Classic Margherita Pizza', 'A classic pizza made with tomato sauce, mozzarella cheese, and fresh basil', 
         '{"Pizza dough","Tomato sauce","Mozzarella cheese","Fresh basil"}',
 
@@ -14,12 +14,3 @@ VALUES ('Spinach and Feta Stuffed Chicken',
         'https://media.istockphoto.com/id/118313946/photo/chicken-breasts-stuffed-with-spinach-and-feta.jpg?s=612x612&w=is&k=20&c=RoMZTAJvrgDQCGERiVEKmSjxoObr7CZYYoe9ZQaZz5I=', DATE_TRUNC('day', NOW()), 'main', 1
         );
 
-INSERT INTO dietary_categories (name) VALUES
-('dairy-free'),
-('gluten-free'),
-('low-carb'),
-('no added sugar'),
-('nut-free'),
-('paleo'),
-('vegan'),
-('vegetarian');

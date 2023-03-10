@@ -15,11 +15,20 @@ document.getElementById("add_ingredient").addEventListener("click", function() {
     newInput.setAttribute("name", "ingredient_name[]");
     newInput.required = true;
 
+    const deleteIngButton = document.createElement("button");
+    deleteIngButton.textContent = "x";
+    deleteIngButton.classList.add("delete-button");
+
     newIngredientDiv.appendChild(newLabel);
     newIngredientDiv.appendChild(newInput);
     document.getElementById("ingredients-container").appendChild(newIngredientDiv);
-});
+    newIngredientDiv.appendChild(deleteIngButton);
 
+    deleteIngButton.addEventListener("click", function() {
+        newIngredientDiv.remove();
+        ingredientCount--;
+    });
+});
 
 let stepCount = 1;
 const addStepButton = document.getElementById("add_step");
@@ -34,19 +43,23 @@ addStepButton.addEventListener("click", function() {
     const newStepLabel = document.createElement("label");
     newStepLabel.textContent = "Step " + stepCount + ":";
 
-    const newStepInstructionTextarea = document.createElement("textarea");
-    newStepInstructionTextarea.setAttribute("id", "step_instruction_" + stepCount);
-    newStepInstructionTextarea.setAttribute("name", "step_instruction[]");
-    newStepInstructionTextarea.required = true;
+    const newStepInstructionInput = document.createElement("input");
+    newStepInstructionInput.setAttribute("type", "text");
+    newStepInstructionInput.setAttribute("id", "step_instruction_" + stepCount);
+    newStepInstructionInput.setAttribute("name", "step_instruction[]");
+    newStepInstructionInput.required = true;
+
+    const deleteStepButton = document.createElement("button");
+    deleteStepButton.textContent = "x";
+    deleteStepButton.classList.add("delete-button");
 
     newStepDiv.appendChild(newStepLabel);
-    newStepDiv.appendChild(newStepInstructionTextarea);
+    newStepDiv.appendChild(newStepInstructionInput);
     stepsContainer.appendChild(newStepDiv);
-});
+    newStepDiv.appendChild(deleteStepButton);
 
-const dairyFreeCheckbox = document.getElementById('dairy_free_checkbox');
-const dairyFreeHidden = document.getElementById('dairy_free_hidden');
-dairyFreeCheckbox.addEventListener('change', () => {
-    dairyFreeHidden.value = dairyFreeCheckbox.checked ? 'on' : 'off';
+    deleteStepButton.addEventListener("click", function() {
+        newStepDiv.remove();
+        stepCount--;
+    });
 });
-

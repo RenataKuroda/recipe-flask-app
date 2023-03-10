@@ -51,24 +51,22 @@
           </div>
         </nav>
         {% if user_recipes %}
-        <ul>
         {% for recipe in user_recipes %}
         <div class="recipe-box">
-        <a href="/recipe/{{ recipe.id }}">
-        <img style="width: 200px; height: 300px;" src="{{ recipe.image_url }}" alt="{{ recipe.title }}">
-        <h4>{{ recipe.title }}</h4>
-        </a>
+            <a href="/recipe/{{ recipe.id }}">
+            <img style="width: 200px; height: 300px;" src="{{ recipe.image_url }}" alt="{{ recipe.title }}">
+            <h4>{{ recipe.title }}</h4>
+            </a>
         <div class="bottom-box">
-        <form action="/edit-recipe/{{ recipe.id }}" method="get" style="display: inline-block">
-        <input type="submit" value="Update">
-        </form>
-        <form action="/delete-recipe/{{ recipe.id }}" method="post" style="display: inline-block" onsubmit="return confirm('Are you sure you want to delete {{ recipe.title }}?')">
-        <input type="submit" value="Delete">
-        </form>
+            <form action="/edit-recipe/{{ recipe.id }}" method="get" style="display: inline-block">
+                <input type="submit" value="Update">
+            </form>
+            <form action="/delete-recipe/{{ recipe.id }}" method="post" style="display: inline-block" onsubmit="return confirm('Are you sure you want to delete {{ recipe.title }}?')">
+                <input type="submit" value="Delete">
+            </form>
         </div>
         </div>
         {% endfor %}
-        </ul>
         {% else %}
         <p>You have not created any recipes yet.<a href="/new-recipe">You can share here!</a></p>
         {% endif %}

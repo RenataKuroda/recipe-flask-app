@@ -59,45 +59,37 @@
     </div>
   
     <button id="add_step">Add Step</button>
-    <!-- <br>
-    <br>
-    <h3>Dietary Categories:</h3>
-
-    {% for category in dietary_categories %}
-    <label for="{{ category.name }}">{{ category.name }}</label>
-    <input type="checkbox" id="{{ category.name }}" name="dietary_category[]" value="{{ category.name }}">
-    {% endfor %} -->
 
   <br>
   <br>
   <label for="dairy_free">Dairy Free:</label>
-  <input type="checkbox" id="dairy_free_checkbox" name="dairy_free">
-  <input type="hidden" id="dairy_free_hidden" name="dairy_free" value="off">
-  
+  <input type="checkbox" id="dairy_free_checkbox" name="dairy_free" {% if dairy_free %}checked{% endif %}>
+  <input type="hidden" id="dairy_free_hidden" name="dairy_free" value="{{ dairy_free }}">
   
   <label for="gluten_free">Gluten Free:</label>
-  <input type="checkbox" id="gluten_free_checkbox" name="gluten_free">
-  <input type="hidden" id="gluten_free_hidden" name="gluten_free" value="off">
+  <input type="checkbox" id="gluten_free_checkbox" name="gluten_free" {% if gluten_free %}checked{% endif %}>
+  <input type="hidden" id="gluten_free_hidden" name="gluten_free" value="{{ gluten_free }}">
   
   <label for="low_carb">Low Carb:</label>
-  <input type="checkbox" id="low_carb_checkbox" name="low_carb">
-  <input type="hidden" id="low_carb_hidden" name="low_carb" value="off">
+  <input type="checkbox" id="low_carb_checkbox" name="low_carb" {% if low_carb %}checked{% endif %}>
+  <input type="hidden" id="low_carb_hidden" name="low_carb" value="{{ low_carb }}">
   
   <label for="no_added_sugar">No Added Sugar:</label>
-  <input type="checkbox" id="no_added_sugar_checkbox" name="no_added_sugar">
-  <input type="hidden" id="no_added_sugar_hidden" name="no_added_sugar" value="off">
+  <input type="checkbox" id="no_added_sugar_checkbox" name="no_added_sugar" {% if no_added_sugar %}checked{% endif %}>
+  <input type="hidden" id="no_added_sugar_hidden" name="no_added_sugar" value="{{ no_added_sugar }}">
   
   <label for="nut_free">Nut Free:</label>
-  <input type="checkbox" id="nut_free_checkbox" name="nut_free">
-  <input type="hidden" id="nut_free_hidden" name="nut_free" value="off">
+  <input type="checkbox" id="nut_free_checkbox" name="nut_free" {% if nut_free %}checked{% endif %}>
+  <input type="hidden" id="nut_free_hidden" name="nut_free" value="{{ nut_free }}">
   
   <label for="vegan">Vegan:</label>
-  <input type="checkbox" id="vegan_checkbox" name="vegan">
-  <input type="hidden" id="vegan_hidden" name="vegan" value="off">
+  <input type="checkbox" id="vegan_checkbox" name="vegan" {% if vegan %}checked{% endif %}>
+  <input type="hidden" id="vegan_hidden" name="vegan" value="{{ vegan }}">
   
   <label for="vegetarian">Vegetarian:</label>
-  <input type="checkbox" id="vegetarian_checkbox" name="vegetarian">
-  <input type="hidden" id="vegetarian_hidden" name="vegetarian" value="off">
+  <input type="checkbox" id="vegetarian_checkbox" name="vegetarian" {% if vegetarian %}checked{% endif %}>
+  <input type="hidden" id="vegetarian_hidden" name="vegetarian" value="{{ vegetarian }}">
+  
   <br><br>
   
     <input type="submit" value="Save Recipe">

@@ -20,8 +20,6 @@ def index():
 if __name__ == "__main__":
     app.run(debug = True)
 
-
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
@@ -214,7 +212,7 @@ def my_search_result():
 @app.route('/delete-recipe/<id>', methods=['POST'])
 def delete_recipe_item(id):
     delete_recipe(id)
-    return redirect('/')
+    return redirect('/my-recipes')
 
 @app.get('/edit-recipe/<id>')
 def update_recipe_form(id):

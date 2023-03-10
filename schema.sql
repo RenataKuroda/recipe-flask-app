@@ -30,26 +30,6 @@ CREATE TABLE users(
     password_hash TEXT
 );
 
-CREATE TABLE dietary_categories (
-  id SERIAL PRIMARY KEY,
-  name VARCHAR(255) NOT NULL UNIQUE
-);
-
-CREATE TABLE recipe_dietary_category (
-  recipe_id INTEGER NOT NULL,
-  dietary_category_id INTEGER NOT NULL,
-  PRIMARY KEY (recipe_id, dietary_category_id),
-  CONSTRAINT fk_recipe_id
-    FOREIGN KEY(recipe_id)
-    REFERENCES recipes(id)
-    ON DELETE CASCADE,
-  CONSTRAINT fk_dietary_category_id
-    FOREIGN KEY(dietary_category_id)
-    REFERENCES dietary_categories(id)
-    ON DELETE CASCADE
-);
-
-
 
 -- to create favorite's list for each user
 CREATE TABLE favorites (
@@ -63,6 +43,15 @@ CREATE TABLE favorites (
         FOREIGN KEY(recipe_id)
         REFERENCES recipes(id)
 );
+-- to add a recipe to a user's favorites list
+INSERT INTO favorites (user_id, recipe_id) VALUES (1, 2);
+
+-- to retrieve users favorite
+SELECT recipes.id, recipes.title, recipes.image_url
+FROM favorites
+JOIN recipes ON favorites.recipe_id = recipes.id
+WHERE favorites.user_id = 1;
+
 -- SELECT recipes.*
 -- FROM favorites
 -- JOIN users ON favorites.user_id = users.id

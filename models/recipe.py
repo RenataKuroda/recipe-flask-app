@@ -28,15 +28,15 @@ def update_recipe(id, title, description, ingredients, instructions, course, dai
     )
 
 def get_user_recipes(user_id):
-    my_recipes = db.select_all_recipes_by_param('SELECT * FROM recipes WHERE user_id = %s', [user_id])
+    my_recipes = db.select_all_recipes_by_param('SELECT * FROM recipes WHERE user_id = %s ORDER BY created_at DESC', [user_id])
     return my_recipes
 
 def get_all_recipes_by_search(query):
-    all_recipes = db.select_all_recipes_by_param("SELECT * FROM recipes WHERE title ILIKE %s OR %s = ANY(ingredients) OR EXISTS(SELECT 1 FROM unnest(ingredients) AS i WHERE i ILIKE %s)", [f"%{query}%", query, f"%{query}%"])
+    all_recipes = db.select_all_recipes_by_param("SELECT * FROM recipes WHERE title ILIKE %s OR %s = ANY(ingredients) OR EXISTS(SELECT 1 FROM unnest(ingredients) AS i WHERE i ILIKE %s) ORDER BY created_at DESC", [f"%{query}%", query, f"%{query}%"])
     return all_recipes
 
 def get_all_recipes_by_course(course):
-    all_recipes = db.select_all_recipes_by_param("SELECT * from recipes WHERE course = %s", [course])
+    all_recipes = db.select_all_recipes_by_param("SELECT * from recipes WHERE course = %s ORDER BY created_at DESC", [course])
     return all_recipes
 
 def get_all_dairy_free_recipes():

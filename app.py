@@ -143,8 +143,9 @@ def my_recipes():
 
     user_id = session['user_id']
     user_recipes = get_user_recipes(session['user_id'])
+    sliced_user_recipes = user_recipes[:8]
 
-    return render_template('my_recipes.html', user_recipes=user_recipes)
+    return render_template('my_recipes.html', user_recipes=sliced_user_recipes)
 
 @app.route('/course/<course>')
 def course_result(course):

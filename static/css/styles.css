@@ -18,8 +18,7 @@
         display: none;
     }
 }
-
-header {
+header{
     background-color: #F5F5F5;
     padding: 20px;
     display: flex;
@@ -27,15 +26,12 @@ header {
     align-items: center;
     font-family: 'Montserrat Alternates', sans-serif;
 }
-  
 .logo img{
     height: 130px;
     width: 130px;
     margin-right: 10px;
     border-radius: 50%;
 }
-
-
 body{
     font-family: 'Roboto', sans-serif;
     background-color: #F5F5F5;
@@ -43,14 +39,12 @@ body{
     position: relative;
     min-height: 100vh;
 }
-
 header nav{
     display: flex;
     justify-content:space-between;
     align-items: center;
     
 }
-
 nav a{
     margin: 0 10px;
     font-size: 16px;
@@ -61,23 +55,19 @@ nav a{
 nav a:hover{
     color: #E5E5E5;
 }
-
 a{
     color: #9F354E;
     text-decoration: none;
-}
-  
+} 
 a:hover{
     color: #B86274;
 }
-
 main{
     max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
     margin-bottom: 20px;
 }
-
 h1{
     font-size: 36px;
     font-weight: bold;
@@ -87,20 +77,17 @@ h1{
 h2{
     color: #9F354E;
 }
-
 h4{
     font-size: 20px;
     font-weight: bold;
     color: #9F354E;
     margin-bottom: 20px;
 }
-
 p{
     font-size: 18px;
     line-height: 1.5;
     margin-bottom: 20px;
 }
-
 button{
     background-color: #9F354E;
     color: #FFFFFF;
@@ -111,11 +98,9 @@ button{
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-
 button:hover{
     background-color: #B86274;
 }
-
 .recipe-box{
     display:inline-block ;
     width: 200px;
@@ -127,8 +112,7 @@ button:hover{
     overflow: hidden;
     position: relative;
 }
-
-.bottom-box {
+.bottom-box{
     position: absolute;
     bottom: 0;
     width: 90%;
@@ -137,18 +121,15 @@ button:hover{
     justify-content: center;
     align-items: center;
     margin-bottom: 5px;
-  }
-  
-  .bottom-box form {
+}
+.bottom-box form{
     margin: 0 10px;
-  }
-
+}
 .recipe-box a{
     display: block;
     text-decoration: none;
     color: #333;
 }
-  
 .recipe-box img,
 .recipe-details-container img{
     display: block;
@@ -158,28 +139,24 @@ button:hover{
     object-fit: cover;
     border-radius: 5px;
 }
-  
 .recipe-box h4,
 .recipe-details-container h4{
     margin: 10px 0;
     font-size: 20px;
     text-align: center;
 }
-  
 .recipe-box p{
     margin: 0;
     text-align: center;
     font-size: 14px;
     color: rgb(106,89,88);
 }
-
 label{
     display: block;
     margin-bottom: 5px;
 }
-
 input[type="text"],
-textarea {
+textarea{
     width: calc(100% - 40px);
     width: 50%;
     padding: 10px;
@@ -188,9 +165,7 @@ textarea {
     box-sizing: border-box;
     margin-bottom: 10px;
 }
-
-
-input[type="submit"] {
+input[type="submit"]{
     padding: 10px;
     background-color: #9F354E;
     color: white;
@@ -199,26 +174,22 @@ input[type="submit"] {
     cursor: pointer;
     margin: 2px;
 }
-
-#main-nav {
+#main-nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-right: 20px;
 }
-  
-#main-nav .nav-links {
+#main-nav .nav-links{
     display: flex;
     gap: 20px;
 }
-  
-#main-nav .search-form {
+#main-nav .search-form{
     display: flex;
     gap: 20px;
     font-size: 12px;
     margin-left: auto;
 }
-  
 #main-nav .search-form input[type="text"],
 .my-search-form input[type="text"]{
     padding: 5px;
@@ -226,27 +197,23 @@ input[type="submit"] {
     background-color: #f2f2f2;
     width: 250px;
 }
-  
 #main-nav .search-form button,
-.my-search-form button {
+.my-search-form button{
     padding: 5px;
     border: none;
     background-color: #f2f2f2;
 }
-
 #main-nav .search-form button,
-.my-search-form button {
+.my-search-form button{
     background-color: #ddd;
     cursor: pointer;
 }
-  
 #main-nav .search-form input[type="text"]:focus,
 #main-nav .search-form button:focus,
 .my-search-form input[type="text"]:focus,
-.my-search-form button:focus {
+.my-search-form button:focus{
     outline: none;
 }
-
 .recipe-details-container{
     width: 50%;
     margin: 0 auto;
@@ -256,16 +223,13 @@ input[type="submit"] {
     border: 1px solid  #9F354E;
     color: #39373d;
 }
-
 .recipe-details-description{
     font-size: 16px;
 }
-
 .error{
     font-size: 14px;
     font-style: italic;
 }
-
 .dietary_categories{
     display: flex;
     justify-content: center;
@@ -278,7 +242,6 @@ input[type="submit"] {
     align-items: center;
     margin-bottom: 10px;
 }
-  
 .dietary_categories p{
     margin: 0 5px;
     padding: 2px 5px;
@@ -287,43 +250,33 @@ input[type="submit"] {
     font-size: 12px;
     color: white;
 }
-  
 .df{
     background-color: #83b5d1;
 }
-  
 .gf{
     background-color: #726e97;
 }
-
 .lc{
     background-color: #7f557d;
 }
-
 .ns{
     background-color: #C4B965;
 }
-
 .nf{
     background-color: #e8b9ab;
 }
-
 .v{
     background-color: #adbca5;
 }
 .veg{
     background-color: #607F6E;
 }
-
-
-.dropdown {
+.dropdown{
     position: relative;
     display: inline-block;
     margin-left: 20px; 
 }
-  
-
-.dropbtn {
+.dropbtn{
     background-color: transparent;
     color: rgb(212, 148, 148);
     font-size: 16px;
@@ -331,9 +284,7 @@ input[type="submit"] {
     outline: none;
     cursor: pointer;
 }
-  
-
-.dropdown-content {
+.dropdown-content{
     display: none;
     position: absolute;
     background-color: #F5F5F5;
@@ -342,17 +293,14 @@ input[type="submit"] {
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     padding: 10px;
-}
-
- 
-.dropdown-content a {
+} 
+.dropdown-content a{
     color: rgb(212, 148, 148);
     font-size: 16px;
     text-decoration: none;
     display: block;
     padding: 10px 0;
 }
-
 .dropbtn::before{
     content: "";
     display: block;
@@ -361,33 +309,19 @@ input[type="submit"] {
     background-color:rgb(212, 148, 148) ;
     margin-bottom: 3px;
 }
-  
-
-.dropdown-content a:hover {
+.dropdown-content a:hover{
     pointer-events: painted;
 }
-  
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content{
     display: block;
 }
-  
-@media screen and (max-width: 768px) {
-
-    .dropdown:hover .dropdown-content {
-      display: none;
-    }
-}
-  
-
-
-#dietary-summary {
+#dietary-summary{
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 60px;
     border: 1px solid #39373d;
 }
-  
 .dietary-summary-box{
     display: flex;
     flex-direction: column;
@@ -395,7 +329,6 @@ input[type="submit"] {
     align-items: center;
     margin: 0 10px;
 }
-
 .dietary-summary-box a{
     display: flex;
     flex-direction: column;
@@ -403,7 +336,6 @@ input[type="submit"] {
     align-items: center;
     margin: 0 10px;
 }
-
 .dietary-summary-box p{
     display: flex;
     justify-content: center;
@@ -415,22 +347,18 @@ input[type="submit"] {
     color: white;
     width: 25px;
 }
-  
-.dietary-summary-box span {
+.dietary-summary-box span{
     font-size: 12px;
     color: #333;
 }
-
 .steps-container{
     display: flex;
     align-items: baseline;
 }
-
 .delete-button{
     font-size: 10px;
     background-color: lightgray;
 }
-
 footer{
     position: absolute;
     bottom: 0;

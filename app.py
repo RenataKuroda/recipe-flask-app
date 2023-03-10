@@ -15,7 +15,8 @@ app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 @app.route('/')
 def index():
     recipes = get_all_recipes()
-    return render_template('index.html', recipes=recipes)
+    sliced_recipes = recipes[:12]
+    return render_template('index.html', recipes=sliced_recipes)
 
 if __name__ == "__main__":
     app.run(debug = True)

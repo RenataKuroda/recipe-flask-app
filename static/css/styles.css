@@ -40,6 +40,8 @@ body{
     font-family: 'Roboto', sans-serif;
     background-color: #F5F5F5;
     color: #333333;
+    position: relative;
+    min-height: 100vh;
 }
 
 header nav{
@@ -73,6 +75,7 @@ main{
     max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
+    margin-bottom: 20px;
 }
 
 h1{
@@ -428,6 +431,12 @@ input[type="submit"] {
     background-color: lightgray;
 }
 
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 20px;
+}
 footer p{
     font-size: 10px;
 }

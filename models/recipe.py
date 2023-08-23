@@ -70,3 +70,10 @@ def get_all_vegetarian_recipes():
 def get_user_recipes_by_search(user_id, query):
     my_search_recipes = db.select_all_recipes_by_param('SELECT * FROM recipes WHERE user_id = %s AND (title ILIKE %s OR %s = ANY(ingredients) OR EXISTS(SELECT 1 FROM unnest(ingredients) AS i WHERE i ILIKE %s))', [user_id, f"%{query}%", query, f"%{query}%"])
     return my_search_recipes
+
+def insert_favorite(user_id, recipe_id):
+    db.insert(
+        "INSERT INTO favorites (user_id, recipe_id) VALUES (%s, %s)",
+        [user_id, recipe_id]
+    )
+

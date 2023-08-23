@@ -52,6 +52,7 @@ Favorites: This table will store information about the recipes that users have m
 #### **Future Implementations**
 - Implement reCaptcha
 - Include Favorites, ratings, comments and sharing.
+- Make the application responsive to use on phones. 
 
 ---
 #### **Final Considerations**

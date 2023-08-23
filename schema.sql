@@ -1,5 +1,5 @@
--- createdb recipeapp
--- psql recipeapp
+createdb recipeapp
+psql recipeapp
 
 CREATE TABLE recipes (
     id SERIAL PRIMARY KEY,
@@ -30,8 +30,6 @@ CREATE TABLE users(
     password_hash TEXT
 );
 
-
--- to create favorite's list for each user
 CREATE TABLE favorites (
     id SERIAL PRIMARY KEY,
     user_id INTEGER NOT NULL,
@@ -43,17 +41,3 @@ CREATE TABLE favorites (
         FOREIGN KEY(recipe_id)
         REFERENCES recipes(id)
 );
--- to add a recipe to a user's favorites list
-INSERT INTO favorites (user_id, recipe_id) VALUES (1, 2);
-
--- to retrieve users favorite
-SELECT recipes.id, recipes.title, recipes.image_url
-FROM favorites
-JOIN recipes ON favorites.recipe_id = recipes.id
-WHERE favorites.user_id = 1;
-
--- SELECT recipes.*
--- FROM favorites
--- JOIN users ON favorites.user_id = users.id
--- JOIN recipes ON favorites.recipe_id = recipes.id
--- WHERE users.id = <user_id>;

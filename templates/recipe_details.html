@@ -12,31 +12,8 @@
     <img style="width: 200px" height="300px" src="{{ recipe.image_url }}" alt="{{ recipe.title }}">
     
     <p class="recipe-details-description">{{ recipe.description }}</p>
-
-    <h5>Ingredients:</h5>
-    <ul>
-      {% for ingredient in recipe.ingredients %}
-      <li>{{ ingredient }}</li>
-      {% endfor %}
-    </ul>
-    <h5>Instructions:</h5>
-    <ol>
-      {% for instruction in recipe.instructions %}
-      <li>{{ instruction }}</li>
-      {% endfor %}
-    </ol>
   
-<!--     
-    <div class="rating">
-      <span class="heart" data-value="1">&#10084;</span>
-      <span class="heart" data-value="2">&#10084;</span>
-      <span class="heart" data-value="3">&#10084;</span>
-      <span class="heart" data-value="4">&#10084;</span>
-      <span class="heart" data-value="5">&#10084;</span>
-    </div>
-
-     -->
-     <div class="dietary_categories">
+    <!-- <div class="dietary_categories">
       {% if recipe.dairy_free %}
       <p class="df">DF</p>
       {% endif %}
@@ -59,8 +36,25 @@
       <p
       class="veg">VEG</p>
       {% endif %}
-    </div>
-    
-    </div>
+      </div>
+       -->
+    <h5>Ingredients:</h5>
+    <ul>
+      {% for ingredient in recipe.ingredients %}
+      <li>{{ ingredient }}</li>
+      {% endfor %}
+    </ul>
+    <h5>Instructions:</h5>
+    <ol>
+      {% for instruction in recipe.instructions %}
+      <li>{{ instruction }}</li>
+      {% endfor %}
+    </ol>
+
+    <!-- <form action="/add-favorite" method="post" style="display: inline-block">
+      <input type="hidden" name="recipe_id" value="{{ recipe.id }}">
+      <input type="submit" value="Add to Favorites">
+  </form> -->
+  </div>
 
 {% endblock main %}

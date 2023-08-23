@@ -6,11 +6,11 @@ from cloudinary import CloudinaryImage
 import cloudinary.uploader
 import os
 
-from models.recipe import get_all_recipes, get_recipe, insert_recipe, delete_recipe, update_recipe, get_user_recipes, get_all_recipes_by_search, get_all_recipes_by_course, get_all_dairy_free_recipes, get_all_gluten_free_recipes, get_all_low_carb_recipes, get_all_no_added_sugar_recipes, get_all_nut_free_recipes, get_all_vegan_recipes, get_all_vegetarian_recipes, get_user_recipes_by_search
+from models.recipe import get_all_recipes, get_recipe, insert_recipe, delete_recipe, update_recipe, get_user_recipes, get_all_recipes_by_search, get_all_recipes_by_course, get_all_dairy_free_recipes, get_all_gluten_free_recipes, get_all_low_carb_recipes, get_all_no_added_sugar_recipes, get_all_nut_free_recipes, get_all_vegan_recipes, get_all_vegetarian_recipes, get_user_recipes_by_search, insert_favorite
 from models.users import get_user_by_email, insert_user
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 
 @app.route('/')
 def index():
@@ -100,12 +100,10 @@ def add_recipe():
     description = request.form.get('description')
 
     if 'image' in request.files:
-        # Upload the image to Cloudinary
         image = request.files.get('image')
         uploaded_image = cloudinary.uploader.upload(image)
         image_url = uploaded_image['url']
     else:
-        # Set a default image URL or use a placeholder image
         image_url = 'https://images.unsplash.com/photo-1487260211189-670c54da558d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80'
 
     user_id = session['user_id']
@@ -252,3 +250,18 @@ def edit_recipe_form(id):
     update_recipe(id, title, description, ingredients, instructions, course, dairy_free, gluten_free, low_carb, no_added_sugar, nut_free, vegan, vegetarian)
 
     return redirect('/my-recipes')
+
+@app.route('/add-favorite', methods=['POST'])
+def add_favorite():
+    
+    if 'user_id' not in session:
+        message = "To be able to save to your favorites, please login."
+        return render_template('login_form.html', message=message)
+    
+    user_id = session['user_id']
+    recipe_id = request.form.get('recipe_id')
+    
+    insert_favorite(user_id, recipe_id)
+
+    return redirect('/my-recipes')
+

@@ -34,7 +34,7 @@ let stepCount = 1;
 const addStepButton = document.getElementById("add_step");
 const stepsContainer = document.getElementById("steps-container");
 
-addStepButton.addEventListener("click", function() {
+addStepButton.addEventListener("click", function(){
     stepCount++;
 
     const newStepDiv = document.createElement("div");

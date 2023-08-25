@@ -3,7 +3,7 @@ from psycopg2.extras import RealDictCursor
 
 def select_all(query):
     # conn = psycopg2.connect("dbname=recipeapp")
-    conn = psycopg2.connect("os.environ.get('DATABASE_URL)")
+    conn = psycopg2.connect(os.environ.get('DATABASE_URL'))
     cur = conn.cursor(cursor_factory=RealDictCursor)
     cur.execute(query)
     results = cur.fetchall()
@@ -13,7 +13,7 @@ def select_all(query):
 
 def select_one(query, params):
     # conn = psycopg2.connect("dbname=recipeapp")
-    conn = psycopg2.connect("os.environ.get('DATABASE_URL)")
+    conn = psycopg2.connect(os.environ.get('DATABASE_URL'))
     cur = conn.cursor(cursor_factory=RealDictCursor)
     cur.execute(query, params)
     result = cur.fetchone()
@@ -21,7 +21,7 @@ def select_one(query, params):
 
 def insert(query, params):
     # conn = psycopg2.connect("dbname=recipeapp")
-    conn = psycopg2.connect("os.environ.get('DATABASE_URL)")
+    conn = psycopg2.connect(os.environ.get('DATABASE_URL'))
     cur = conn.cursor()
     cur.execute(query, params)
     conn.commit()
@@ -29,7 +29,7 @@ def insert(query, params):
 
 def write(query, params):
     # db_connection = psycopg2.connect("dbname=recipeapp")
-    db_connection = psycopg2.connect("os.environ.get('DATABASE_URL)")
+    db_connection = psycopg2.connect(os.environ.get('DATABASE_URL'))
     db_cursor = db_connection.cursor(cursor_factory=RealDictCursor)
     db_cursor.execute(
         query,
@@ -41,7 +41,7 @@ def write(query, params):
 
 def select_all_recipes_by_param(query, params):
     # conn = psycopg2.connect("dbname=recipeapp")
-    conn = psycopg2.connect("os.environ.get('DATABASE_URL)")
+    conn = psycopg2.connect(os.environ.get('DATABASE_URL'))
     cur = conn.cursor(cursor_factory=RealDictCursor)
     cur.execute(query, params)
     results = cur.fetchall()

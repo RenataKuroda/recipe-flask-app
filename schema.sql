@@ -1,5 +1,5 @@
-createdb recipeapp
-psql recipeapp
+-- createdb recipeapp
+-- psql recipeapp
 
 CREATE TABLE recipes (
     id SERIAL PRIMARY KEY,
@@ -13,9 +13,9 @@ CREATE TABLE recipes (
     user_id INTEGER NOT NULL,
     CONSTRAINT fk_user_id
         FOREIGN KEY(user_id)
-        REFERENCES users(id)
+        REFERENCES users(id),
     dairy_free BOOLEAN NOT NULL DEFAULT false,
-    gluten_free BOOLEAN NOT NULL DEFAULT false
+    gluten_free BOOLEAN NOT NULL DEFAULT false,
     low_carb BOOLEAN NOT NULL DEFAULT false,
     no_added_sugar BOOLEAN NOT NULL DEFAULT false,
     nut_free BOOLEAN NOT NULL DEFAULT false,

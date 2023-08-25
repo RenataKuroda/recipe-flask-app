@@ -1,5 +1,6 @@
 import psycopg2
 from psycopg2.extras import RealDictCursor
+import os
 
 def select_all(query):
     # conn = psycopg2.connect("dbname=recipeapp")

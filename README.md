@@ -1,7 +1,7 @@
 # **Project 2 - Re-cipes **
 Project submission for [General Assembly](https://generalassemb.ly) Software Engineering Course flex mode (end of Unit 2). 
 
-To check my project go to this [link]().
+To check my project go to this [link](https://recipe-flask-app.onrender.com).
 
 ![Re-cipes](./static/images/re-cipe-homepage.jpg) 
 

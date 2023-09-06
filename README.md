@@ -1,7 +1,7 @@
 # **Project 2 - Re-cipes **
 Project submission for [General Assembly](https://generalassemb.ly) Software Engineering Course flex mode (end of Unit 2). 
 
-To check my project go to this [link](https://recipe-flask-app.onrender.com).
+To check my project's demo go to this [link](https://recipe-flask-app.onrender.com).
 
 ![Re-cipes](./static/images/re-cipe-homepage.jpg) 
 
@@ -40,7 +40,7 @@ Favorites: This table will store information about the recipes that users have m
 2. Add APIs (pending reCaptcha)
 
 *Set 4*
-1. Deploy and present
+1. Deploy with Render.
 ---
 
 #### **Technologies used**

@@ -17,7 +17,7 @@ Main features:
 - Include sign up/log in functionality, with encrypted passwords & an authorization flow.
 - Modify data in the database. There should be ways for users to add/change some data in the database.
 - Have semantically clean HTML and CSS.
-- Be deployed online and accessible to the public (still not deployed)
+- Be deployed online and accessible to the public.
 ---
 ### **Planning**
 
@@ -28,7 +28,7 @@ Main features:
 Users: This table will store information about the users of the app, such as their name, email address, and password
 Recipes: This table will store information about the recipes that users create and share.
 Favorites: This table will store information about the recipes that users have marked as favorites
-4. Deploy online (pending)
+4. Deploy online.
 
 *Step 2*
 1. Set up development environment - flask, PostgreSQL, virtual environment
